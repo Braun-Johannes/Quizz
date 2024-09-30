@@ -37,9 +37,24 @@ export default {
   </div>
 
   <div class="selected">
-    <span class="dot" :class="activeClass('play')" @click="showSection('play')"></span>
-    <span class="dot" :class="activeClass('create')" @click="showSection('create')"></span>
-    <span class="dot" :class="activeClass('library')" @click="showSection('library')"></span>
+    <span
+      class="dot"
+      :class="activeClass('play')"
+      @click="showSection('play')"
+      aria-label="Show Play Section"
+    ></span>
+    <span
+      class="dot"
+      :class="activeClass('create')"
+      @click="showSection('create')"
+      aria-label="Show Create Section"
+    ></span>
+    <span
+      class="dot"
+      :class="activeClass('library')"
+      @click="showSection('library')"
+      aria-label="Show Library Section"
+    ></span>
   </div>
 </template>
 
@@ -117,6 +132,22 @@ export default {
   display: inline-block;
   text-align: center;
   margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .logoDot {
+    height: 20vw;
+    width: 20vw;
+  }
+
+  .slogan {
+    font-size: 4vw;
+  }
+
+  .dot {
+    height: 4vw;
+    width: 4vw;
+  }
 }
 
 @media (min-width: 1024px) {
