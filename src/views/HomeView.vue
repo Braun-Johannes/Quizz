@@ -9,6 +9,13 @@ export default {
     showSection(section) {
       this.currentSection = section
     }
+  },
+  computed: {
+    activeClass() {
+      return (section) => {
+        return this.currentSection === section ? 'active' : ''
+      }
+    }
   }
 }
 </script>
@@ -21,18 +28,18 @@ export default {
 
   <div class="create" v-show="currentSection === 'create'">
     <span class="logoDot"></span>
-    <p class="slogan">Show them a different Quizz</p>
+    <p class="slogan">Create</p>
   </div>
 
   <div class="library" v-show="currentSection === 'library'">
     <span class="logoDot"></span>
-    <p class="slogan">Show them your last Quizz</p>
+    <p class="slogan">Library</p>
   </div>
 
   <div class="selected">
-    <span class="dot" @click="showSection('play')" id="dot1"></span>
-    <span class="dot" @click="showSection('create')" id="dot2"></span>
-    <span class="dot" @click="showSection('library')" id="dot2"></span>
+    <span class="dot" :class="activeClass('play')" @click="showSection('play')"></span>
+    <span class="dot" :class="activeClass('create')" @click="showSection('create')"></span>
+    <span class="dot" :class="activeClass('library')" @click="showSection('library')"></span>
   </div>
 </template>
 
@@ -47,6 +54,11 @@ export default {
   margin: auto;
 }
 /* .logoDot later gets the icon/play button*/
+
+.dot.active {
+  border: 2px solid #000;
+  background-color: #2e6464; /* highlighting of span.dot */
+}
 
 .slogan {
   font-size: 1.5rem;
