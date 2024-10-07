@@ -38,47 +38,47 @@ export default {
 </script>
 
 <template>
-  <div class="create createContainer">
-    <span class="logoDot"></span>
-    <p class="slogan">Create</p>
+  <div class="createContainer">
+    <span class="logoDot createDot"></span>
+    <p class="slogan">Create a card</p>
     <form @submit.prevent="addCard">
-      <div>
+      <div class="form-group">
         <label>Question:</label>
         <input v-model="question" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Answer 1:</label>
         <input v-model="answers[0]" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Answer 2:</label>
         <input v-model="answers[1]" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Answer 3:</label>
         <input v-model="answers[2]" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Answer 4:</label>
         <input v-model="answers[3]" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Correct Answer:</label>
         <input v-model="correctAnswer" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Difficulty:</label>
         <input v-model="difficulty" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Subject:</label>
         <input v-model="subject" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Tags:</label>
         <input v-model="tags" type="text" required />
       </div>
-      <div>
+      <div class="form-group">
         <label>Hint:</label>
         <input v-model="hint" type="text" required />
       </div>
@@ -105,10 +105,28 @@ export default {
 
 <style>
 .createContainer {
-  border: green solid 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
+
+  padding: 10px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form-group label {
+  width: 200px; /* Adjust this width as needed */
+  margin-right: 100px;
+}
+
+.createDot {
+  height: 50px;
+  width: 50px;
 }
 </style>

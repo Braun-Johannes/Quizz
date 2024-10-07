@@ -32,7 +32,7 @@ export default {
       <p class="slogan">Show them your Quizz</p>
     </div>
 
-    <CreateCard v-show="currentSection === 'create'" />
+    <CreateCard class="create" v-show="currentSection === 'create'" />
 
     <div class="library" v-show="currentSection === 'library'">
       <span class="logoDot"></span>
@@ -66,13 +66,6 @@ export default {
 .dot.active {
   border: 2px solid #000;
   background-color: #2e6464; /* highlighting of span.dot */
-}
-
-.slogan {
-  font-size: 1.5rem;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
 }
 
 .generalContainer {

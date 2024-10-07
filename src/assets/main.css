@@ -6,14 +6,12 @@
   font-weight: normal;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.slogan {
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
 }
-
 .dot {
   height: 15px;
   width: 15px;
@@ -31,7 +29,7 @@ a,
   border-radius: 50%;
   display: inline-block;
   text-align: center;
-  margin: auto;
+  margin: 10px;
 }
 /* .logoDot later gets the icon/play button*/
 
@@ -40,4 +38,3 @@ a,
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
-
