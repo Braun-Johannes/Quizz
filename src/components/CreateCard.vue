@@ -24,7 +24,7 @@ export default {
         hint: this.hint
       }
       this.createdCards.push(newCard)
-      // Clear form inputs
+
       this.question = ''
       this.answers = ['', '', '', '']
       this.correctAnswer = ''
@@ -41,49 +41,56 @@ export default {
   <div class="createContainer">
     <span class="logoDot createDot"></span>
     <p class="slogan">Create a card</p>
-    <form @submit.prevent="addCard">
-      <div class="form-group">
-        <label>Question:</label>
-        <input v-model="question" type="text" required />
+
+    <div class="card-container">
+      <div class="card-content">
+        <div class="card-front">
+          <div class="form-group">
+            <label>Question:</label>
+            <input v-model="question" type="text" required />
+          </div>
+
+          <div class="form-group" v-for="(answer, index) in answers" :key="index">
+            <label>Answer {{ index + 1 }}:</label>
+            <input v-model="answers[index]" type="text" required />
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="form-group">
+            <label>Correct Answer:</label>
+            <select v-model="correctAnswer" required>
+              <option v-for="(answer, index) in answers" :key="answer" :value="answer">
+                Answer {{ index + 1 }}
+              </option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Answer 1:</label>
-        <input v-model="answers[0]" type="text" required />
+      <div class="additional-info">
+        <div class="form-group">
+          <label>Difficulty:</label>
+          <select v-model="difficulty" required>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Subject:</label>
+          <input v-model="subject" type="text" required />
+        </div>
+        <div class="form-group">
+          <label>Tags:</label>
+          <input v-model="tags" type="text" required />
+        </div>
+        <div class="form-group">
+          <label>Hint:</label>
+          <input v-model="hint" type="text" required />
+        </div>
       </div>
-      <div class="form-group">
-        <label>Answer 2:</label>
-        <input v-model="answers[1]" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Answer 3:</label>
-        <input v-model="answers[2]" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Answer 4:</label>
-        <input v-model="answers[3]" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Correct Answer:</label>
-        <input v-model="correctAnswer" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Difficulty:</label>
-        <input v-model="difficulty" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Subject:</label>
-        <input v-model="subject" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Tags:</label>
-        <input v-model="tags" type="text" required />
-      </div>
-      <div class="form-group">
-        <label>Hint:</label>
-        <input v-model="hint" type="text" required />
-      </div>
-      <button type="submit">Create Card</button>
-    </form>
+      <button type="submit" @click="addCard">Create Card</button>
+    </div>
 
     <div v-for="(card, index) in createdCards" :key="index" class="card">
       <div class="card-front">
@@ -103,30 +110,43 @@ export default {
   </div>
 </template>
 
-<style>
-.createContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 10px;
-}
-
-.form-group {
-  display: flex;
-  align-items: center;
-
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-.form-group label {
-  width: 200px; /* Adjust this width as needed */
-  margin-right: 100px;
-}
-
+<style scoped>
 .createDot {
   height: 50px;
   width: 50px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-front,
+.card-back {
+  background-color: grey;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.additional-info {
+  margin-top: 20px;
+  display: flex;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+button {
+  margin-top: 20px;
 }
 </style>
