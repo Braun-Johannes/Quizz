@@ -36,9 +36,9 @@ export default {
   }
 }
 </script>
- 
+
 <template>
-  <div class="create">
+  <div class="create createContainer">
     <span class="logoDot"></span>
     <p class="slogan">Create</p>
     <form @submit.prevent="addCard">
@@ -84,6 +84,7 @@ export default {
       </div>
       <button type="submit">Create Card</button>
     </form>
+
     <div v-for="(card, index) in createdCards" :key="index" class="card">
       <div class="card-front">
         <p>{{ card.question }}</p>
@@ -101,3 +102,13 @@ export default {
     </div>
   </div>
 </template>
+
+<style>
+.createContainer {
+  border: green solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
+</style>

@@ -26,16 +26,18 @@ export default {
 </script>
 
 <template>
-  <div class="play" v-show="currentSection === 'play'">
-    <span class="logoDot"></span>
-    <p class="slogan">Show them your Quizz</p>
-  </div>
+  <div class="generalContainer">
+    <div class="play" v-show="currentSection === 'play'">
+      <span class="logoDot"></span>
+      <p class="slogan">Show them your Quizz</p>
+    </div>
 
-  <CreateCard v-show="currentSection === 'create'" />
+    <CreateCard v-show="currentSection === 'create'" />
 
-  <div class="library" v-show="currentSection === 'library'">
-    <span class="logoDot"></span>
-    <p class="slogan">Library</p>
+    <div class="library" v-show="currentSection === 'library'">
+      <span class="logoDot"></span>
+      <p class="slogan">Library</p>
+    </div>
   </div>
 
   <div class="selected">
@@ -60,18 +62,7 @@ export default {
   </div>
 </template>
 
-<style>
-.logoDot {
-  height: 100px;
-  width: 100px;
-  background-color: #2e6464;
-  border-radius: 50%;
-  display: inline-block;
-  text-align: center;
-  margin: auto;
-}
-/* .logoDot later gets the icon/play button*/
-
+<style scoped>
 .dot.active {
   border: 2px solid #000;
   background-color: #2e6464; /* highlighting of span.dot */
@@ -84,20 +75,18 @@ export default {
   padding: 1rem;
 }
 
-.play,
-.create,
-.library {
+.generalContainer {
   border: white solid 1px;
   border-radius: 15px;
 
   max-width: 80%;
   min-height: 80vh;
   margin: 0 auto;
-  padding: 1rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+  text-align: center;
 
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* transition for swipe function */
@@ -123,16 +112,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
-}
-
-.dot {
-  height: 15px;
-  width: 15px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  display: inline-block;
-  text-align: center;
   margin: 5px;
 }
 

@@ -14,21 +14,30 @@ a,
   padding: 3px;
 }
 
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+}
+
+.logoDot {
+  height: 100px;
+  width: 100px;
+  background-color: #2e6464;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+}
+/* .logoDot later gets the icon/play button*/
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
