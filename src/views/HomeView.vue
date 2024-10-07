@@ -1,9 +1,14 @@
 <script>
+import CreateCard from '@/components/CreateCard.vue'
+
 export default {
   data() {
     return {
       currentSection: 'play'
     }
+  },
+  components: {
+    CreateCard
   },
   methods: {
     showSection(section) {
@@ -26,10 +31,7 @@ export default {
     <p class="slogan">Show them your Quizz</p>
   </div>
 
-  <div class="create" v-show="currentSection === 'create'">
-    <span class="logoDot"></span>
-    <p class="slogan">Create</p>
-  </div>
+  <CreateCard v-show="currentSection === 'create'" />
 
   <div class="library" v-show="currentSection === 'library'">
     <span class="logoDot"></span>
